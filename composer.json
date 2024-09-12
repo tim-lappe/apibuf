@@ -1,0 +1,27 @@
+{
+    "name": "tim-lappe/apibuf",
+    "description": "A php protobuf generator for api's",
+    "type": "library",
+    "require": {
+        "php": "^8.3",
+        "symfony/console": "^7.1",
+        "composer-runtime-api": "^2.2.2",
+        "google/protobuf": "^4.28",
+        "doctrine/lexer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Apibuf\\": "src/",
+            "ApibufParser\\": "parser/"
+        }
+    },
+    "bin": [
+        "bin/apibuf"
+    ],
+    "scripts": {
+        "protoc": "protoc --php_out=src/Protobuf --include_imports protobuf/*.proto"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.26"
+    }
+}

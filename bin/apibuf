@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+require_once $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
+
+# Symfony Console Application
+use Symfony\Component\Console\Application;
+
+# Commands
+use Apibuf\Commands\GenerateControllerCommand;
+
+$application = new Application("Apibuf", "0.0.1");
+$application->add(new GenerateControllerCommand());
+
+try {
+    $application->run();
+} catch (Throwable $e) {
+    echo $e->getMessage() . PHP_EOL;
+    exit(1);
+}
